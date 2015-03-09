@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	{% if hotel %}
+    	<H2>{{hotel.getVille}}</H2>
+    	Chambres :
+    	<ul>
+	    {% for chambre in hotel.chambres %}
+	    	<li>
+	        <h3>numero : {{ chambre.numero }}</h2>
+	        </li>
+	    {% endfor %}
+    	</ul>
+	{% else %}
+    	<H2>HOTEL NOT FOUND !!!! </H2>
+	{% endif %}    	
+{% endblock %}

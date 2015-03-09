@@ -1,0 +1,13 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+	<ul>
+    {% for hotel in hotels %}
+    	<a href="{{ path('hotel.detail', { 'ville': hotel.ville }) }}">
+	    	<li>
+        	<h2>{{ hotel.ville }} ({{ hotel.chambres.count }} chambres)</h2>
+    	    </li>
+        </a>
+    {% endfor %}
+	</ul>
+{% endblock %}
