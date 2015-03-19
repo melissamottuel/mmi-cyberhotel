@@ -4,10 +4,20 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * @ORM\Entity
+ * 
+ * @author mbangum
+ *
+ */
 class Chambre {
 
 	/**
 	 * A reference to the hotel containing this room.
+	 * 
+     * @ORM\ManyToOne(targetEntity="HotelExpress", inversedBy="chambres")
+     * @ORM\JoinColumn(name="hotel", referencedColumnName="ville")
+	 * @ORM\Id
 	 * 
 	 * @var \AppBundle\Entity\HotelExpress
 	 */
@@ -17,6 +27,9 @@ class Chambre {
 	 * 
 	 * The room number
 	 * 
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * 
 	 * @var integer
 	 */
 	protected $numero;

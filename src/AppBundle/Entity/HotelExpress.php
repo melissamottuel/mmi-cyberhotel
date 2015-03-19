@@ -6,17 +6,28 @@ use Doctrine\ORM\Mapping as ORM;
 
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
+/**
+ * @ORM\Entity
+ * 
+ * @author mbangum
+ *
+ */
 class HotelExpress {
 	
 	/**
 	 * The city where the hotel is located. 
 	 *
+     * @ORM\Column(type="string", length=100)
+     * @ORM\Id
+     * 
 	 * @var string
 	 */
 	protected $ville;
 
 	/**
 	 * The list of rooms in the hotel
+	 * 
+	 * @ORM\OneToMany(targetEntity="Chambre", mappedBy="hotel")
 	 * 
 	 * @var \Doctrine\Common\Collections\Collection
 	 */
