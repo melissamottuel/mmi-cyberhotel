@@ -15,6 +15,15 @@ use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 class HotelExpress {
 	
 	/**
+	 * 
+	 * @ORM\OneToMany(targetEntity="Sejour", mappedBy="dansHotel")
+	 * @ORM\Column(type="string")
+	 * 
+	 */
+	protected $sejourDans;
+	
+	
+	/**
 	 * The city where the hotel is located. 
 	 *
      * @ORM\Column(type="string", length=100)

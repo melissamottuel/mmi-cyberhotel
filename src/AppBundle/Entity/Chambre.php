@@ -25,14 +25,24 @@ class Chambre {
 	
 	/**
 	 * 
-	 * The room number
+	 * @ORM\OneToMany(targetEntity="Nuitee", mappedBy="pendant")
+     * @ORM\Column(type="date")
 	 * 
-     * @ORM\Column(type="integer")
+	 */
+	protected $dans;
+	
+	/**
+	 * 
+	 * The room number
+	 * @ORM\Column(type="integer")
      * @ORM\Id
      * 
 	 * @var integer
 	 */
 	protected $numero;
+	
+	
+	
 	
     /**
      * Constructor
