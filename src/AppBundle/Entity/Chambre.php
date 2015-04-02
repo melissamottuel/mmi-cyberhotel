@@ -26,8 +26,8 @@ class Chambre {
 	/**
 	 * 
 	 * @ORM\OneToMany(targetEntity="Nuitee", mappedBy="pendant")
-     * @ORM\Column(type="date")
-	 * 
+     * 
+	 * @var \Doctrine\Common\Collections\Collection
 	 */
 	protected $dans;
 	
@@ -53,8 +53,11 @@ class Chambre {
     public function __construct(\AppBundle\Entity\HotelExpress $hotel, $numero) {
     	$this->hotel = $hotel;
         $this->numero = $numero;
-        
         $this->hotel->addChambre($this);
+        
+        $this->dans = new \Doctrine\Common\Collections\ArrayCollection();
+        
+        
     }
 	
     /**

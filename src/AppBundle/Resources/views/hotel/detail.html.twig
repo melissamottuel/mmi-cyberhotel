@@ -3,13 +3,17 @@
 {% block body %}
 	{% if hotel %}
     	<H2>{{hotel.getVille}}</H2>
-    	Chambres :
     	<ul>
-	    {% for chambre in hotel.chambres %}
-	    	<li>
-	        <h3>numero : {{ chambre.numero }}</h2>
-	        </li>
-	    {% endfor %}
+	        <li>{{ hotel.pays }}
+    	    </li>
+    	    <li>{{ hotel.adresse }}
+    	    </li>
+    	    <li>{{ hotel.description }}
+    	    </li>
+    	    <li>{{ hotel.prix }}
+    	    </li>
+    	    <li>{{ hotel.chambres.count }} chambres
+    	    </li>
     	</ul>
 	{% else %}
     	<H2>HOTEL NOT FOUND !!!! </H2>

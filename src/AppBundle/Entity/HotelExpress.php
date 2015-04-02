@@ -17,8 +17,8 @@ class HotelExpress {
 	/**
 	 * 
 	 * @ORM\OneToMany(targetEntity="Sejour", mappedBy="dansHotel")
-	 * @ORM\Column(type="string")
 	 * 
+	 * @var \Doctrine\Common\Collections\Collection
 	 */
 	protected $sejourDans;
 	
@@ -32,6 +32,16 @@ class HotelExpress {
 	 * @var string
 	 */
 	protected $ville;
+	
+	
+	/**
+	 * The country where the hotel is located.
+	 *
+	 * @ORM\Column(type="string", length=100, nullable=true)
+	 *
+	 * @var string
+	 */
+	protected $pays;
 
 	/**
 	 * The list of rooms in the hotel
@@ -41,6 +51,25 @@ class HotelExpress {
 	 * @var \Doctrine\Common\Collections\Collection
 	 */
 	protected $chambres;
+	
+	
+	/**
+	 * The description of the hotel
+	 *
+	 * @ORM\Column(type="string", length=100, nullable=true)
+	 *
+	 * @var string
+	 */
+	protected $description;
+	
+	/**
+	 * The price of the chamber
+	 *
+	 * @ORM\Column(type="integer", nullable=true)
+	 *
+	 * @var string
+	 */
+	protected $prix;
 
     /**
      * Constructor
@@ -51,7 +80,17 @@ class HotelExpress {
     {
     	$this->ville = $ville;
         $this->chambres = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->sejourDans = new \Doctrine\Common\Collections\ArrayCollection();
     }
+    
+    /**
+     * The adress of the hotel
+     *
+     * @ORM\Column(type="string", length=100, nullable=true)
+     *
+     * @var string
+     */
+    protected $adresse;
 	
     /**
      * Get ville
@@ -63,6 +102,16 @@ class HotelExpress {
     }
 
     /**
+     * Get pays
+     *
+     * @return string
+     */
+    public function getPays() {
+    	return $this->pays;
+    }
+    
+
+    /**
      * Get chambres
      *
      * @return \Doctrine\Common\Collections\Collection 
@@ -70,6 +119,35 @@ class HotelExpress {
     public function getChambres() {
         return $this->chambres;
     }
+    
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription() {
+    	return $this->description;
+    }
+    
+    /**
+     * Get prix
+     *
+     * @return integer
+     */
+    public function getPrix() {
+    	return $this->prix;
+    }
+    
+
+    /**
+     * Get adresse
+     *
+     * @return string
+     */
+    public function getAdresse() {
+    	return $this->adresse;
+    }
+     
     
     /**
      * Add chambres
